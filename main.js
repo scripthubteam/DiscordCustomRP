@@ -4,7 +4,7 @@ A user-friendly way to use Rich Presence in Discord!
 built with node.js and discord-rpc
 
 author -  Devsaider#5593
-repo -  
+repo -  https://github.com/scripthubteam/DiscordCustomRP
  */
 
 const DiscordRPC = require('discord-rpc');
