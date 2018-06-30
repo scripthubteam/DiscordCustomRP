@@ -1,0 +1,25 @@
+{
+  "name": "discordcustomrp",
+  "version": "1.0.0",
+  "description": "A user-friendly way to use Rich Presence in Discord!",
+  "main": "main.js",
+  "dependencies": {
+    "colors": "^1.3.0",
+    "discord-rpc": "^3.0.0-beta.11",
+    "electron": "^2.0.3",
+    "fs": "0.0.1-security",
+    "moment": "^2.22.2",
+    "parse-duration": "^0.1.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node main.js"
+  },
+  "keywords": [
+    "discord",
+    "richpresence"
+  ],
+  "author": "",
+  "license": "ISC"
+}

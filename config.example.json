@@ -1,0 +1,22 @@
+{
+  "tCfg": {
+    "details": "Oh, hi",
+    "state": "This is DiscordCustomRP"
+  },
+  "iCfg": {
+    "smallOptions": "active",
+    "smallKey": "wf-unitone",
+    "smallText": "EVA Unit",
+    "largeOptions": "active",
+    "largeKey": "wf_rei",
+    "largeText": "Rei Ayanami"
+  },
+  "timeCfg": {
+    "timeType": "none",
+    "whatTime": "0m"
+  },
+
+  "clientID": "444955042106179595"
+}
+
+
