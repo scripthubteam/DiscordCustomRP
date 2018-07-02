@@ -49,24 +49,22 @@ This is the final result of configuring my `config.json`. To get the `clientId` 
 [config.example.json](https://github.com/scripthubteam/DiscordCustomRP/blob/master/config.example.json) content:
 ```
 {
-  "tCfg": {
-    "details": "Oh, hi",
-    "state": "This is DiscordCustomRP"
-  },
-  "iCfg": {
-    "smallOptions": "active",
-    "smallKey": "a_small_mari",
-    "smallText": "Mari (small text)",
-    "largeOptions": "active",
-    "largeKey": "a_large_mari",
-    "largeText": "Mari (large text)"
-  },
-  "timeCfg": {
-    "timeType": "none",
-    "whatTime": "0m"
-  },
+"textCfg": {
+"details": "Oh, hi",
+"state": "This is DiscordCustomRP"
+},
+"imageCfg": {
+"smallKey": "a_small_mari",
+"smallText": "Mari (small text)",
+"largeKey": "a_large_mari",
+"largeText": "Mari (large text)"
+},
+"timeCfg": {
+"timeType": "none",
+"whatTime": "0m"
+},
 
-  "clientID": "463437134137655298"
+"clientID": "463437134137655298"
 }
 ```
 
