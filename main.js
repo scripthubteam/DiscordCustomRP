@@ -12,24 +12,28 @@ const fs = require('fs');
 const parse = require('parse-duration')
 const moment = require('moment')
 const colors = require("colors")
-let config
+const inquirer = require("inquirer")
 
 console.log("Connecting RPC...".grey)
 console.log("Verifying configuration...".grey)
 
 if(fs.existsSync("./config.example.json") === true){
-  console.log(`Configutarion Error!\nWe have detected that you still keep the file "config.example.json", please check that your custom data is inserted and change the name of the file to "config.json".\n- If you need help with this part, visit the repository documentation (see the help.txt file)`.red)
-  process.exit()
+  console.warn(`Configutarion Reminder!`.bgGreen)
+  console.log(`You can configure the values of your DiscordCustomRP from the "config.json" file.`)
+  fs.renameSync("config.example.json", "config.json")
 }
 
 
-try{
-  config = require("./config.json")
-} catch(e) {
-  console.error("Configutarion Error!\nIt is not possible to obtain information with the file config.json\n- If you need help with this part, visit the repository documentation (see the help.txt file)".red)
+if(fs.existsSync("./config.json") === false){
+  let data = `{\n"textCfg": {\n"details": "Oh, hi",\n"state": "This is DiscordCustomRP"\n},\n"imageCfg": {\n"smallKey": "a_small_mari",\n"smallText": "Mari (small text)",\n"largeKey": "a_large_mari",\n"largeText": "Mari (large text)"\n},\n"timeCfg": {\n"timeType": "none",\n"whatTime": "0m"\n},\n\n"clientID": "463437134137655298"\n}`.toString()
+  console.error("Configutarion Error!".bgRed)
+  console.error("It is not possible to obtain information with the file \"config.json\". This is because the file does not exist.")
+  console.warn(`We have recreated the "config.example.json" file with the default data, restart DiscordCustomRP to confirm that you will use these fields. You can modify them later!`.bgGreen)
+  fs.writeFileSync("config.example.json", data)
   process.exit()
 }
 
+let config = require("./config.json")
 const ClientId = config.clientID;
 var openTimestamp
 
@@ -45,21 +49,13 @@ async function setActivity() {
 
   
   var activity = {
-    details: config.tCfg.details,
-    state: config.tCfg.state,
+    details: config.textCfg.details,
+    state: config.textCfg.state,
+    smallImageKey: config.imageCfg.smallKey,
+    smallImageText: config.imageCfg.smallText,
+    largeImageKey: config.imageCfg.largeKey,
+    largeImageText: config.imageCfg.largeText,
     instance: false
-  }
-
-  // aka mini-icons
-  if (config.iCfg.smallOptions == 'active') {
-    activity.smallImageKey = config.iCfg.smallKey
-    activity.smallImageText = config.iCfg.smallText
-  }
-
-  // aka principal icons
-  if(config.iCfg.largeOptions == 'active'){
-    activity.largeImageKey = config.iCfg.largeKey
-    activity.largeImageText = config.iCfg.largeText
   }
 
   if (!openTimestamp) {
@@ -79,23 +75,12 @@ async function setActivity() {
 
 rpc.on('ready', () => {
   setActivity();
-  let SisActive = "activated".green
-  let LisActive = "activated".green
-  if(config.iCfg.smallOptions !== 'active'){
-      SisActive = "deactivated".red
-    }
-  if(config.iCfg.smallOptions !== 'active'){
-      LisActive = "deactivated".red
-    }
   console.log("DiscordCustomRP is connected.".underline.green)
-    console.log("The small icons of the Rich Presence are:")
-    console.log(SisActive)
-    console.log("The large icons of the Rich Presence are:")
-    console.log(LisActive)
   console.log("Running!".rainbow)
   setInterval(() => {
+    delete require.cache
     setActivity();
-  }, 60000);
+  }, 15000);
 });
 
 rpc.login(ClientId).catch(console.error);

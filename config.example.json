@@ -1,22 +1,18 @@
 {
-  "tCfg": {
-    "details": "Oh, hi",
-    "state": "This is DiscordCustomRP"
-  },
-  "iCfg": {
-    "smallOptions": "active",
-    "smallKey": "wf-unitone",
-    "smallText": "EVA Unit",
-    "largeOptions": "active",
-    "largeKey": "wf_rei",
-    "largeText": "Rei Ayanami"
-  },
-  "timeCfg": {
-    "timeType": "none",
-    "whatTime": "0m"
-  },
+"textCfg": {
+"details": "Oh, hi",
+"state": "This is DiscordCustomRP"
+},
+"imageCfg": {
+"smallKey": "a_small_mari",
+"smallText": "Mari (small text)",
+"largeKey": "a_large_mari",
+"largeText": "Mari (large text)"
+},
+"timeCfg": {
+"timeType": "none",
+"whatTime": "0m"
+},
 
-  "clientID": "444955042106179595"
+"clientID": "463437134137655298"
 }
-
-

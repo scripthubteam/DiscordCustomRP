@@ -8,6 +8,7 @@
     "discord-rpc": "^3.0.0-beta.11",
     "electron": "^2.0.3",
     "fs": "0.0.1-security",
+    "inquirer": "^6.0.0",
     "moment": "^2.22.2",
     "parse-duration": "^0.1.1",
     "path": "^0.12.7"
