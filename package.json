@@ -9,7 +9,7 @@
     "electron": "^2.0.8",
     "fs": "0.0.1-security",
     "inquirer": "^6.0.0",
-    "moment": "^2.22.2",
+    "moment": "^2.29.4",
     "parse-duration": "^0.1.1",
     "path": "^0.12.7"
   },
